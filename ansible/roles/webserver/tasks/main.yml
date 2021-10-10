@@ -194,4 +194,13 @@
     owner: root
     group: root
     mode: 0440
+
+- name: www-data sudoers schedule as pi user
+  become: yes
+  copy:
+    src: 020_www-data-schedule-nopasswd
+    dest: /etc/sudoers.d/020_www-data-schedule-nopasswd
+    owner: root
+    group: root
+    mode: 0440
 ...

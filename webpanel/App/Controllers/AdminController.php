@@ -67,6 +67,20 @@ class AdminController extends \Lib\Controller {
     View::renderTemplate('Admin/passes.html', $args);
   }
 
+  # Runs the schedule.sh script
+  # This allows the user to recover their schedule through
+  # the user interface after deleting passes.
+  public function schedulePasses($args) {
+    # Run schedule.sh
+    try {
+      echo shell_exec("sudo -u pi /home/pi/raspberry-pi-noaa/scripts/schedule.sh -tx 2>&1");
+    } catch (exception $e) {
+      error_log("Error running schedule.sh- " . $e);
+    }
+
+    redirect('/admin/passes');
+  }
+
   public function capturesAction($args) {
     $capture = $this->loadModel('Capture');
     $total_pages = $capture->totalPages(Config::ADMIN_CAPTURES_PER_PAGE);

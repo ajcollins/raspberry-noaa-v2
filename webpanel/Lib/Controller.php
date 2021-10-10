@@ -45,6 +45,11 @@ abstract class Controller {
   private function connectToDB() {
     $this->db_conn = new \SQLite3(Config::DB_FILE);
   }
+
+  function redirect($url, $statusCode = 303) {
+    header('Location: ' . $url, true, $statusCode);
+    die();
+  }
 }
 
 ?>
