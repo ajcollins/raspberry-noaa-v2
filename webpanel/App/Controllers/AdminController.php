@@ -73,12 +73,12 @@ class AdminController extends \Lib\Controller {
   public function schedulePasses($args) {
     # Run schedule.sh
     try {
-      echo shell_exec("sudo -u pi /home/pi/raspberry-pi-noaa/scripts/schedule.sh -tx 2>&1");
+      echo shell_exec("sudo -u pi /home/pi/raspberry-noaa-v2/scripts/schedule.sh -tx 2>&1 &");
     } catch (exception $e) {
       error_log("Error running schedule.sh- " . $e);
     }
 
-    redirect('/admin/passes');
+    $this->redirect('/admin/passes');
   }
 
   public function capturesAction($args) {
