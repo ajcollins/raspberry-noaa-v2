@@ -30,19 +30,19 @@ if [ $EUID -eq 0 ]; then
 fi
 
 # binary helpers
-CONVERT="/usr/bin/convert"
-FFMPEG="/usr/bin/ffmpeg"
-GMIC="/usr/bin/gmic"
-IDENTIFY="/usr/bin/identify"
-MEDET_ARM="/usr/bin/medet_arm"
+CONVERT="$(which convert)"
+FFMPEG="$(which ffmpeg)"
+GMIC="$(which gmic)"
+IDENTIFY="$(which identify)"
+MEDET_ARM="$(which medet_arm)"
 METEOR_DEMOD="$(which meteor_demod)"
-PREDICT="/usr/bin/predict"
-RTL_FM="/usr/local/bin/rtl_fm"
-SOX="/usr/bin/sox"
-SQLITE3="/usr/bin/sqlite3"
-WXMAP="/usr/local/bin/wxmap"
-WXTOIMG="/usr/local/bin/wxtoimg"
-WKHTMLTOIMG="/usr/local/bin/wkhtmltoimage"
+PREDICT="$(which predict)"
+RTL_FM="$(which rtl_fm)"
+SOX="$(which sox)"
+SQLITE3="$(which sqlite3)"
+WXMAP="$(which wxmap)"
+WXTOIMG="$(which wxtoimg)"
+WKHTMLTOIMG="$(which wkhtmltoimage)"
 
 # base directories for scripts
 SCRIPTS_DIR="${NOAA_HOME}/scripts"
