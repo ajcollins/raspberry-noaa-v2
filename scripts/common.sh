@@ -36,6 +36,9 @@ if [ $EUID -eq 0 ]; then
   exit 1
 fi
 
+# Log basic environment information
+log "Environment: \n\tPATH: ${PATH}" "INFO"
+
 # Verify required binaries are present and on user's PATH
 command_exists "convert"
 command_exists "ffmpeg"
