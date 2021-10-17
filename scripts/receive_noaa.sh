@@ -196,7 +196,7 @@ for enhancement in $ENHANCEMENTS; do
   export ENHANCEMENT=$enhancement
   log "Decoding image" "INFO"
 
-  # determine what frequency based on NOAA variant
+  # Determine which enhancement script to run
   proc_script=""
   case $enhancement in
     "ZA")
