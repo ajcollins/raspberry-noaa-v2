@@ -26,23 +26,23 @@ class rtlsdr_noaa_apt_rx(gr.top_block):
     def __init__(self):
         gr.top_block.__init__(self, "RTLSDR NOAA APT Receiver V1.0.0")
 
-	###############################################################
-	# Variables - added for Raspberry-Noaa-V2 manually after export
-	###############################################################
+        ###############################################################
+        # Variables - added for Raspberry-Noaa-V2 manually after export
+        ###############################################################
 
-    	# get some variables in place for inputs
-    	#
-    	# Arguments:
-    	#   1. Full path and name of stream file (including file extension)
-    	#   2. Gain to be used
-	    #   3. Frequency (in Mhz)	
-    	#   4. Frequency offset (PPM)
+        # get some variables in place for inputs
+        #
+        # Arguments:
+        #   1. Full path and name of stream file (including file extension)
+        #   2. Gain to be used
+        #   3. Frequency (in Mhz)
+        #   4. Frequency offset (PPM)
 
-    	stream_name = sys.argv[1]
-	gain = float(sys.argv[2])
-	import decimal
-	freq = int(decimal.Decimal(sys.argv[3].strip("M"))*decimal.Decimal(1000000))
-    	freq_offset = int(sys.argv[4])
+        stream_name = sys.argv[1]
+        gain = float(sys.argv[2])
+        import decimal
+        freq = int(decimal.Decimal(sys.argv[3].strip("M"))*decimal.Decimal(1000000))
+        freq_offset = int(sys.argv[4])
 
         ##################################################
         # Variables
@@ -54,7 +54,7 @@ class rtlsdr_noaa_apt_rx(gr.top_block):
         self.cutoff = cutoff = 75000
         self.centre_freq = centre_freq = 0
 
-	###############################################################
+        ###############################################################
         # Blocks - note the fcd_freq, freq_offset and gain are carried 
         #          in from settings.yml using the 'variables' block above.
         #          NOTE: If you edit and replace this .py in gnucomposer
@@ -89,15 +89,13 @@ class rtlsdr_noaa_apt_rx(gr.top_block):
                 fractional_bw=None,
         )
         self.low_pass_filter_0 = filter.fir_filter_ccf(20, firdes.low_pass(
-        	1, samp_rate, cutoff, trans, firdes.WIN_HAMMING, 6.76))
+            1, samp_rate, cutoff, trans, firdes.WIN_HAMMING, 6.76))
         self.gr_wavfile_sink_0_0_0_0 = blocks.wavfile_sink(recfile, 1, 11025, 16)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((0.7, ))
         self.blks2_wfm_rcv_0 = analog.wfm_rcv(
-        	quad_rate=96000,
-        	audio_decimation=5,
+            quad_rate=96000,
+            audio_decimation=5,
         )
-
-
 
         ##################################################
         # Connections
