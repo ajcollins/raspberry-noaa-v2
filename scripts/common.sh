@@ -36,6 +36,21 @@ if [ $EUID -eq 0 ]; then
   exit 1
 fi
 
+# Verify required binaries are present and on user's PATH
+command_exists "convert"
+command_exists "ffmpeg"
+command_exists "gmic"
+command_exists "identify"
+command_exists "medet_arm"
+command_exists "meteor_demod"
+command_exists "predict"
+command_exists "rtl_fm"
+command_exists "sox"
+command_exists "sqlite3"
+command_exists "wxmap"
+command_exists "wxtoimg"
+command_exists "wkhtmltoimage"
+
 # binary helpers
 CONVERT="/usr/bin/convert"
 FFMPEG="/usr/bin/ffmpeg"
