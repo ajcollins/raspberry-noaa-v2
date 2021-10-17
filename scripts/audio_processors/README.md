@@ -10,7 +10,7 @@ Since the release of RN2 we have supported Meteor M2 capture and decoding via ei
 This update introduces the same setting option for NOAA and the  settings.yml.sample now contains that set: 
 
 
-```
+```yaml
 # receiver settings
 #   meteor_receiver - which receiver method to use (either 'rtl_fm' or 'gnuradio')
 #   noaa_receiver  - which receiver method to use (either 'rtl_fm' or 'gnuradio')
