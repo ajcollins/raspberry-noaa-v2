@@ -72,11 +72,11 @@ The python script will have a number of variables hard-coded, and so, for exampl
 
 For example in ```rtlsdr_noaa_apt_rx.py``` lines 41 to 45 have been added manually after the gnuradio export: These capture variables passed by the ```noaa_record_gnuradio.sh``` script which pass through various settings to be used by the python script as it processes. 
 
-```
+```python
     stream_name = sys.argv[1]
-	gain = float(sys.argv[2])
-	import decimal
-	freq = int(decimal.Decimal(sys.argv[3].strip("M"))*decimal.Decimal(1000000))
+    gain = float(sys.argv[2])
+    import decimal
+    freq = int(decimal.Decimal(sys.argv[3].strip("M"))*decimal.Decimal(1000000))
     freq_offset = int(sys.argv[4])
 ```
 
