@@ -54,6 +54,8 @@ command_exists "identify"
 command_exists "medet_arm"
 command_exists "meteor_demod"
 command_exists "predict"
+command_exists "python2"  # Python2 is used by the GNURadio scripts
+command_exists "python3"  # Python3 is used generally.
 command_exists "rtl_fm"
 command_exists "sox"
 command_exists "sqlite3"
