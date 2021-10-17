@@ -23,6 +23,13 @@ log() {
   echo $(date '+%d-%m-%Y %H:%M') $0 "${log_priority} : ${log_message}" >> "$NOAA_LOG"
 }
 
+command_exists() {
+  if ! command -v "$1" &>/dev/null; then
+    log "Required command not found: $1" "ERROR"
+    exit 1
+  fi
+}
+
 # run as a normal user for any scripts within
 if [ $EUID -eq 0 ]; then
   log "This script shouldn't be run as root." "ERROR"

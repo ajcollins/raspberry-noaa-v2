@@ -9,13 +9,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-command_exists() {
-    if ! command -v "$1" &> /dev/null; then
-        log "Required command not found: $1" "ERROR"
-        exit 1
-    fi
-}
-
 command_exists "sox"
 command_exists "socat"
 
