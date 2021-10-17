@@ -74,7 +74,6 @@ if pgrep "rtl_fm" > /dev/null; then
   exit 1
 fi
 
-log "Starting rtl_fm record" "INFO"
 if [ "$NOAA_RECEIVER" == "rtl_fm" ]; then
   log "Starting rtl_fm record" "INFO"
   ${AUDIO_PROC_DIR}/noaa_record_rtl_fm.sh "${SAT_NAME}" $CAPTURE_TIME "${AUDIO_FILE_BASE}.wav" >> $NOAA_LOG 2>&1
