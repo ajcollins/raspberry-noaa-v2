@@ -17,10 +17,10 @@ log() {
   (( ${levels[$log_priority]} < ${levels[$log_level]} )) && return 2
 
   # log in place (which for at jobs end up in the linux mail)
-  echo "${log_priority} : ${log_message}"
+  echo -e "${log_priority} : ${log_message}"
 
   # log output to a log file
-  echo $(date '+%d-%m-%Y %H:%M') $0 "${log_priority} : ${log_message}" >> "$NOAA_LOG"
+  echo -e $(date '+%d-%m-%Y %H:%M') $0 "${log_priority} : ${log_message}" >> "$NOAA_LOG"
 }
 
 command_exists() {
@@ -37,7 +37,7 @@ if [ $EUID -eq 0 ]; then
 fi
 
 # Log basic environment information
-log "Environment: PATH: ${PATH}" "INFO"
+log "Environment: \n\tUSER: ${USER}\n\tPATH: ${PATH}" "INFO"
 
 # Verify required binaries are present and on user's PATH
 command_exists "convert"
