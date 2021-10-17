@@ -36,6 +36,13 @@ if [ $EUID -eq 0 ]; then
   exit 1
 fi
 
+# Ensure /usr/local/bin is on the PATH as tools such as
+# meteor_demod are installed there.
+case :$PATH: in
+  *:/usr/local/bin:*)  ;;  # Do nothing
+  *)                   PATH=$PATH:/usr/local/bin ;;
+esac
+
 # Log basic environment information
 log "Environment: \n\tUSER: ${USER}\n\tPATH: ${PATH}" "INFO"
 
