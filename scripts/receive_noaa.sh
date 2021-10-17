@@ -247,9 +247,6 @@ for enhancement in $ENHANCEMENTS; do
     "BD")
       proc_script="noaa_bd.sh"
       ;;
-    "avi")
-      proc_script="noaa_avi.sh"
-      ;;
     "MB")
       proc_script="noaa_mb.sh"
       ;;
@@ -285,7 +282,7 @@ for enhancement in $ENHANCEMENTS; do
      filesize=$(wc -c "${IMAGE_FILE_BASE}-$enhancement.jpg" | awk '{print $1}')
      ${IMAGE_PROC_DIR}/noaa_normalize_annotate.sh "${IMAGE_FILE_BASE}-$enhancement.jpg" "${IMAGE_FILE_BASE}-$enhancement.jpg" 90 >> $NOAA_LOG 2>&1
       ${IMAGE_PROC_DIR}/thumbnail.sh 300 "${IMAGE_FILE_BASE}-$enhancement.jpg" "${IMAGE_THUMB_BASE}-$enhancement.jpg" >> $NOAA_LOG 2>&1
-  
+
       # check that the file actually has content
       if [ $filesize -gt 20480 ]; then
         # at least one good image
