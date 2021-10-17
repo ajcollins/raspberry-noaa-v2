@@ -25,6 +25,7 @@ echo "Repo git hash:           ${LATEST_GIT_HASH}"
 echo "Raspberry Pi Model:      ${RPI_MODEL}"
 echo "Architecture:            ${ARCH}"
 echo "Num CPUs:                ${CPUS}"
+echo "PATH:                    ${PATH}"
 
 echo "---------------------------------------------"
 echo "'at' Scheduled Jobs (Captures):"
